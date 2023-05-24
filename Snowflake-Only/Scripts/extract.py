@@ -30,11 +30,12 @@ def extract():
     last_year = datetime.today().year - 1
     name_last_file_uploaded = get_name_last_file_uploaded(bucket_name, prefix)
     if name_last_file_uploaded is not None:
+        print('Last file uploaded: ' + name_last_file_uploaded)
         year_last_file_uploaded = int(name_last_file_uploaded.split('-')[-1].split('.')[0])
-
         years = list(range(year_last_file_uploaded, last_year))
         file_names = [base_file_name + str(year) + file_format_ending for year in years]
     else:
+        print('A file has not been found in the specified location of the bucket')
         file_names = [base_file_name + str(last_year) + file_format_ending]
 
     for file_name in file_names:
