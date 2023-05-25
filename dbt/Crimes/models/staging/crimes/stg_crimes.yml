@@ -39,7 +39,7 @@ models:
         tests:
           - not_null
       - name: victim_age_category
-        description: the age group of the crime's victim
+        description: '{{ doc("victim_age_category") }}'
         tests:
           - not_null
           - accepted_values:
