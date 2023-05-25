@@ -35,6 +35,8 @@ models:
     # Config indicated by + and applies to all files under models/example/
     marts:
       core:
+        +schema: consumption
         +materialized: table
     staging:
+      +schema: transformed
       +materialized: view
