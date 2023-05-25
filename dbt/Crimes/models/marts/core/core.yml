@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_modalities
+    description: the dimension table for crime modalities and categories
+    columns:
+      - name: modality_id
+        description: the primary key of the dimension table
+        tests: 
+          - not_null
+          - unique
