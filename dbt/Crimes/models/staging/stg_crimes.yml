@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: stg_crimes
+    description: the stage for raw crimes data
+    columns:
+      - name: crime_category
+        description: the category of the crime
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - ASALTO
+                - HURTO
+                - TACHA DE VEHICULO
+                - ROBO
+                - ROBO DE VEHICULO
+                - HOMICIDIO
+      - name: crime_modality
+        description: the modality (or subcategory) of the crime
+        tests:
+          - not_null
+      - name: crime_date
+        description: the date when a particular crime took place
+        tests:
+          - not_null
+      - name: target_type
+        description: the target of the crime
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - PERSONA
+                - VIVIENDA
+                - VEHICULO
+                - EDIFICACION
+      - name: target_description
+        description: more details about the target type
+        tests:
+          - not_null
+      - name: victim_age_category
+        description: the age group of the crime's victim
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - MAYOR DE EDAD
+                - MENOR DE EDAD
+                - ADULTO MAYOR
+                - DESCONOCIDO
+      - name: crime_province
+        description: the province where the crime took place
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - SAN JOSE
+                - HEREDIA
+                - PUNTARENAS
+                - ALAJUELA
+                - LIMON
+                - CARTAGO
+                - GUANACASTE
+                - DESCONOCIDO
+      - name: crime_canton
+        description: the canton where the crime took place
+        tests:
+          - not_null
+      - name: crime_district
+        description: the district where the crime took place
+        tests:
+          - not_null
