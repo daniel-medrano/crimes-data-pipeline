@@ -9,3 +9,11 @@ models:
         tests: 
           - not_null
           - unique
+  - name: dim_dates
+    description: the dimension table for dates
+    columns:
+      - name: date_id
+        description: the primary key of the dimension table
+        tests:
+          - not_null
+          - unique
