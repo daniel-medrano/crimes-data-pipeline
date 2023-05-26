@@ -41,3 +41,36 @@ models:
         tests:
           - not_null  
           - unique
+  - name: fct_crimes
+    description: the fact table for crimes data with the primary keys of the dimension tables
+    columns:
+      - name: modality_id
+        description: the foreign key that relates fct_crimes with dim_modalities, the test asserts that each value in this column exists in dim_modalities modality_id
+        tests:
+          - relationships:
+              to: ref('dim_modalities')
+              field: modality_id
+      - name: date_id
+        description: the foreign key that relates fct_crimes with dim_dates, the test asserts that each value in this column exists in dim_dates date_id
+        tests:
+          - relationships:
+              to: ref('dim_dates')
+              field: date_id
+      - name: target_id
+        description: the foreign key that relates fct_crimes with dim_targets, the test asserts that each value in this column exists in dim_targets target_id
+        tests:
+          - relationships:
+              to: ref('dim_targets')
+              field: target_id
+      - name: demographics_id
+        description: the foreign key that relates fct_crimes with dim_victim_demographics, the test asserts that each value in this column exists in dim_victim_demographics demographics_id
+        tests:
+          - relationships:
+              to: ref('dim_victim_demographics')
+              field: demographics_id
+      - name: geographics_id
+        description: the foreign key that relates fct_crimes with dim_geographics, the test asserts that each value in this column exists in dim_geographics geographics_id
+        tests:
+          - relationships:
+              to: ref('dim_geographics')
+              field: geographics_id
