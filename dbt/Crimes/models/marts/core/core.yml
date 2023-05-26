@@ -17,3 +17,27 @@ models:
         tests:
           - not_null
           - unique
+  - name: dim_targets
+    description: the dimension table for targets
+    columns:
+      - name: target_id
+        description: the primary key of the dimension table
+        tests:
+          - not_null
+          - unique
+  - name: dim_victim_demographics
+    description: the dimension table for demographics data of the victim such as the age group and nationality
+    columns:
+      - name: demographics_id
+        description: the primary key of the dimension table
+        tests:
+          - not_null
+          - unique
+  - name: dim_geographics
+    description: the dimension table for geographics data of the crime
+    columns:
+      - name: geographics_id
+        description: the primary key of the dimension table
+        tests:
+          - not_null  
+          - unique
