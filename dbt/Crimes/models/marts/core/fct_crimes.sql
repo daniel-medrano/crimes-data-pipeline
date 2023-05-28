@@ -1,3 +1,10 @@
+{{ 
+    config(
+        materialized='incremental'
+        -- TODO: add unique_key attribute in order to rebuild only a subset of the data that had already been loaded
+    ) 
+}}
+
 with stg_crimes as (
     select * from {{ ref('stg_crimes') }}
 ),
@@ -39,6 +46,10 @@ crimes as (
         on c.crime_province = g.province
         and c.crime_canton = g.canton
         and c.crime_district = g.district
+
+    {% if is_incremental() %}
+        where date_id > (select max(date_id) from {{ this }})
+    {% endif %}
 )
 select *
 from crimes

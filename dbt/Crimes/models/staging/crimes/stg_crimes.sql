@@ -3,6 +3,9 @@ with source as (
 ),
 not_mismatched as (
     select
+        metadata_file_name,
+        metadata_file_row_number,
+        metadata_load_ltz,
         col1 as crime_category,
         col2 as crime_modality,
         to_date(col3) as crime_date,
@@ -18,6 +21,9 @@ not_mismatched as (
 ),
 mismatched as (
     select
+        metadata_file_name,
+        metadata_file_row_number,
+        metadata_load_ltz,
         col1 as crime_category,
         col2 as crime_modality,
         to_date(col3) as crime_date,
@@ -38,6 +44,5 @@ stage as (
     select * 
     from mismatched
 )
-
 select *
 from stage
