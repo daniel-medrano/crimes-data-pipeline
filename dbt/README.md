@@ -1,4 +1,4 @@
-# Data Challenge ULACIT 2023 - Using dbt and Snowflake [In Process]
+# Crimes Data Pipeline - Using dbt and Snowflake [In Process]
 
 ## Architecture
 ...
