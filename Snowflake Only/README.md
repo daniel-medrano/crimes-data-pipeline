@@ -4,19 +4,13 @@
 
 This business intelligence solution leverages Snowflake and Power BI capabilities to create a dashboard for analyzing a crimes dataset from Costa Rica. The ETL pipelines were built using only SQL and used Snowflake objects such as pipe, stream, and task. The data was structured into a star schema on Snowflake and the resulting dashboard was designed using Power BI. This provides a streamlined and efficient solution for analyzing the crimes dataset, making it easier to gain insights and make informed decisions.
 
-## Dashboard
-
-![Dashboard](Docs/Snapshots/dashboard.png)
-
-## Data Model
-
-![Data Model](Docs/Diagrams/data-model.svg)
+![Simple Architecture](Docs/Diagrams/simple-architecture.svg)
 
 ## Architecture
 
 ### Considerations
 
-- The architeture is comprised of three layers: raw, transformed and consumption.
+- The database on Snowflake is comprised of three layers: raw, transformed and consumption.
 - Each layer is a schema on Snowflake.
 
 ### Flow
@@ -28,7 +22,7 @@ This business intelligence solution leverages Snowflake and Power BI capabilitie
 5. The append-only changes made by the pipe object are captured by the stream linked to the TRANSFORMED.CRIMES table.
 6. A recurring scheduled task checks the stream linked to the TRANSFORMED.CRIMES table to pull any new data, if that's the case, then data is moved from TRANSFORMED.CRIMES to all the other tables in the consumption layer that make up a star schema using the data pipeline described below.
 
-![Architecture](Docs/Diagrams/architecture.svg)
+![Detailed Architecture](Docs/Diagrams/detailed-architecture.svg)
 
 ## DAGs
 
@@ -36,3 +30,11 @@ This business intelligence solution leverages Snowflake and Power BI capabilitie
 - The main DAG in charge of filling the tables in the star schema can be seen in the figure below.
 
 ![DAG](Docs/Diagrams/dag.svg)
+
+## Data Model
+
+![Data Model](Docs/Diagrams/data-model.svg)
+
+## Dashboard
+
+![Dashboard](Docs/Snapshots/dashboard.png)
