@@ -1,7 +1,7 @@
 # Crimes Data Pipeline
 
 ## Versions
-- [Snowflake Only (Pipe + Task + Stream)](./Snowflake%20Only/README.md)  
+- [AWS (EventBridge + Lambda + S3) + Snowflake (Pipe + Task + Stream)](./AWS%20%2B%20Snowflake/README.md)  
 - [dbt + Snowflake](./dbt/README.md)
 
 ## Dataset
